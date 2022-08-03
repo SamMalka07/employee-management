@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import DeleteModal from "./DeleteModal";
-import EditModal from "./EditModal";
 
 const Modal = ({ handlingData, closeModal }) => {
   console.log(handlingData);
