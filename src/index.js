@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 // import rootReducer from "./reducers/rootReducer";
 import employeeReducer from "./reducers/employeeReducer";
 import testReducer from "./reducers/testReducer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const rootReducer = combineReducers({
   emp: employeeReducer,
@@ -19,6 +21,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
+      <ToastContainer />
     </Provider>
   </React.StrictMode>
 );

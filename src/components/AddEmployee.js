@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
 import {
   addEmployee,
   removeSelectedID,
@@ -34,9 +35,15 @@ const AddEmployee = (props) => {
     if (props.selectedId?.id) {
       props.updateEmployee(data);
       props.removeSelectedID();
+      toast.success("Successfully Updated", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
     if (props.selectedId?.id === undefined) {
       props.addEmployee(data);
+      toast.success("Successfully Added", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
     reset();
   };

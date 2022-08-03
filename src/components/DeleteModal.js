@@ -1,11 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deleteEmployee } from "../actions/employeeActions";
+import { toast } from "react-toastify";
 
 const DeleteModal = (props) => {
   const handleDelete = () => {
     props.deleteEmployee(props.id);
     handleClose();
+
+    toast.success("Successfully Deleted", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   };
 
   const handleClose = () => {
