@@ -52,7 +52,8 @@ body {
       span {
         position: absolute;
         top: 0;
-        right: 0
+        right: 0;
+        padding-right: 10px;
       }
 
     }
@@ -63,7 +64,9 @@ body {
 @media screen and (max-width:520px) {
   tbody button{
     width: 70%;
-    margin-top:3px
+    margin-top:3px;
+    padding-left: 3px !important;
+    padding-right: 3px !important;
   }
   .add-form input{
     width: 100%;
@@ -71,9 +74,12 @@ body {
   .add-form div{
     margin-bottom: 10px;
   }
+  .modal{
+    min-width: 370px !important;
+    max-width: 370px;
+  }
 }
 
-
-.activeModal{
-  background-color: green;
+.actions-column{
+  min-width:100px;
 }

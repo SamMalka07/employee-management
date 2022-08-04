@@ -25,13 +25,10 @@ const ViewEmployees = (props) => {
   };
 
   return (
-    <>
+    <div className="w-full overflow-x-scroll">
       <table className="w-full text-center mt-10">
         <thead className=" bg-rose-900 mb-3">
           <tr>
-            <th className="py-1 text-rose-50 font-semibold tracking-wide">
-              EmpID
-            </th>
             <th className="py-1 text-rose-50 font-semibold tracking-wide">
               Name
             </th>
@@ -51,11 +48,10 @@ const ViewEmployees = (props) => {
             const { id, name, title, contact } = emp;
             return (
               <tr className="bg-red-50" key={index}>
-                <td className="py-1">{id}</td>
                 <td className="py-1">{name}</td>
                 <td className="py-1">{title}</td>
                 <td className="py-1">{contact}</td>
-                <td className="py-1">
+                <td className="py-1 actions-column">
                   <button
                     className="bg-rose-600 hover:bg-rose-500 mx-1 px-3 rounded-lg text-white"
                     onClick={(e) => deleteHandler(e, id)}
@@ -77,7 +73,7 @@ const ViewEmployees = (props) => {
       {isModalOpen && (
         <Modal handlingData={handlingData} closeModal={closeModal} />
       )}
-    </>
+    </div>
   );
 };
 

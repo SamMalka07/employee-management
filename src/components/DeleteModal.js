@@ -23,13 +23,13 @@ const DeleteModal = (props) => {
       <div className="mt-4">
         <button
           onClick={handleDelete}
-          className="bg-rose-700 hover:bg-rose-600 rounded-md shadow-xl px-3 py-1 mr-3 text-rose-50"
+          className="bg-rose-700 hover:bg-rose-600 rounded-md shadow-xl px-3 mr-3 text-rose-50"
         >
           Submit
         </button>
         <button
           onClick={handleClose}
-          className="bg-gray-800 hover:bg-gray-700 rounded-md shadow-xl px-3 py-1 mr-3 text-rose-50"
+          className="bg-gray-800 hover:bg-gray-700 rounded-md shadow-xl px-3 mr-3 text-rose-50"
         >
           Cancel
         </button>

@@ -61,11 +61,12 @@ const AddEmployee = (props) => {
         <div className="my-2">
           <input
             placeholder="Name"
-            {...register("name", { required: true })}
+            {...register("name", { required: true, maxLength: 10 })}
             className="w-3/4 mr-3 rounded-md px-2 py-1"
           />
           <span className="text-rose-800 font-semibold">
             {errors.name?.type === "required" && "Name is required"}
+            {errors.name?.type === "maxLength" && "Max 10 characters"}
           </span>
         </div>
 
@@ -82,12 +83,19 @@ const AddEmployee = (props) => {
 
         <div className="my-2">
           <input
+            id="contact"
             placeholder="Contact"
-            {...register("contact", { required: true })}
+            {...register("contact", {
+              required: true,
+              maxLength: 12,
+              pattern: { value: /^[0-9]+$/, message: "Invalid contact number" },
+            })}
             className="w-3/4 mr-3 rounded-md px-2 py-1"
           />
           <span className="text-rose-800 font-semibold">
+            {errors.contact && errors.contact.message}
             {errors.contact?.type === "required" && "Contact is required"}
+            {errors.contact?.type === "maxLength" && "Max 12 digits"}
           </span>
         </div>
 

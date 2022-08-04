@@ -3,7 +3,6 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import DeleteModal from "./DeleteModal";
 
 const Modal = ({ handlingData, closeModal }) => {
-  console.log(handlingData);
   return (
     <div className="modal-background">
       <div className="modal p-3">
