@@ -1,7 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
 import AddEmployee from "./AddEmployee";
-import Modal from "./Modal";
 import ViewEmployees from "./ViewEmployees";
 
 const Employees = () => {

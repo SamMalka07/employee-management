@@ -16,8 +16,6 @@ const ViewEmployees = (props) => {
 
   const editHandler = (e, data) => {
     e.preventDefault();
-    // setIsModalOpen(true);
-    // setHandlingData({ data, type: "EDIT" });
     props.selectedId(data);
   };
 

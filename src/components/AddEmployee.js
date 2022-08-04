@@ -9,18 +9,11 @@ import {
 } from "../actions/employeeActions";
 
 const AddEmployee = (props) => {
-  let defaultValues = {
-    name: props.selectedId?.name || "",
-    title: props.selectedId?.title || "",
-    contact: props.selectedId?.contact || "",
-  };
-
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-    watch,
   } = useForm();
 
   useEffect(() => {
@@ -29,7 +22,13 @@ const AddEmployee = (props) => {
     defaultValues.title = props.selectedId?.title || "";
     defaultValues.contact = props.selectedId?.contact || "";
     reset({ ...defaultValues });
-  }, [props.selectedId?.id]);
+  }, [
+    props.selectedId?.id,
+    props.selectedId?.name,
+    props.selectedId?.title,
+    props.selectedId?.contact,
+    reset,
+  ]);
 
   const onSubmit = (data) => {
     if (props.selectedId?.id) {
@@ -58,14 +57,16 @@ const AddEmployee = (props) => {
       <h1 className="mb-5 mx-1 font-bold">
         {props.selectedId?.id ? "Update" : "Add"} Employee
       </h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="add-form">
         <div className="my-2">
           <input
             placeholder="Name"
             {...register("name", { required: true })}
             className="w-3/4 mr-3 rounded-md px-2 py-1"
           />
-          {errors.name?.type === "required" && "Name is required"}
+          <span className="text-rose-800 font-semibold">
+            {errors.name?.type === "required" && "Name is required"}
+          </span>
         </div>
 
         <div className="my-2">
@@ -74,7 +75,9 @@ const AddEmployee = (props) => {
             {...register("title", { required: true })}
             className="w-3/4 mr-3 rounded-md px-2 py-1"
           />
-          {errors.title?.type === "required" && "Title is required"}
+          <span className="text-rose-800 font-semibold">
+            {errors.title?.type === "required" && "Title is required"}
+          </span>
         </div>
 
         <div className="my-2">
@@ -83,7 +86,9 @@ const AddEmployee = (props) => {
             {...register("contact", { required: true })}
             className="w-3/4 mr-3 rounded-md px-2 py-1"
           />
-          {errors.contact?.type === "required" && "Contact is required"}
+          <span className="text-rose-800 font-semibold">
+            {errors.contact?.type === "required" && "Contact is required"}
+          </span>
         </div>
 
         <button
